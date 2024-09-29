@@ -1,12 +1,16 @@
 const qrcode = require('qrcode-terminal');
 const fs = require("fs");
 const { Client, LocalAuth } = require('whatsapp-web.js');
+const puppeteer = require('puppeteer-core');
 
 // Membuat client WhatsApp
 const client = new Client({
     authStrategy: new LocalAuth({
         clientId: "client-one"
-    })
+    }),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    },
 });
 
 // Menampilkan QR code untuk autentikasi
@@ -30,8 +34,7 @@ client.on('message', message => {
     }
 });
 
-
-
+// Mendengarkan pesan untuk level
 client.on('message', message => {
     if (message.body === '!lvling') {
         const response = `
@@ -146,7 +149,7 @@ Lokasi: Fiery Volcano: Lava Trail (Lereng Merapi: Jejak Lava)
 
 #Level 272-285
 -Boss: Trickster Dragon Mimyugon (Ultimate)
- Lokasi: Operation ZOne A4
+ Lokasi: Operation Zone A4
         `;
         message.reply(response);
     }
