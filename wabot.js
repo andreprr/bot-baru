@@ -15,7 +15,7 @@ const client = new Client({
 
 // Menampilkan QR code untuk autentikasi
 client.on("qr", qr => {
-    qrcode.generate(qr, { small: true });
+    qrcode.generate(qr, { small: false });  // Hasilkan QR code dengan ukuran penuh
 });
 
 // Client siap digunakan
