@@ -1,4 +1,4 @@
-const qrcode = require('qrcode-terminal');
+const qrcode = require('qrcode');
 const fs = require("fs");
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const puppeteer = require('puppeteer-core');
@@ -15,7 +15,9 @@ const client = new Client({
 
 // Menampilkan QR code untuk autentikasi
 client.on("qr", qr => {
-    qrcode.generate(qr, { small: false });  // Hasilkan QR code dengan ukuran penuh
+    qrcode.toDataURL(qr, function (err, url) {
+        console.log("Scan QR code ini: ", url);  // Outputkan URL gambar di log
+    });
 });
 
 // Client siap digunakan
