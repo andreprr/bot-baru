@@ -1,4 +1,5 @@
-const qrcode = require('qrcode');
+const qrcode = require('qrcode-terminal');
+const qrcodeFile = require('qrcode'); // Importing qrcode for file generation
 const fs = require("fs");
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const puppeteer = require('puppeteer-core');
@@ -15,8 +16,11 @@ const client = new Client({
 
 // Menampilkan QR code untuk autentikasi
 client.on("qr", qr => {
+    // Tampilkan QR code di terminal
+    qrcode.generate(qr, { small: true });
+
     // Menyimpan QR code sebagai file gambar
-    qrcode.toFile("qrcode.png", qr, {
+    qrcodeFile.toFile("qrcode.png", qr, {
         color: {
             dark: '#000',  // Warna titik hitam
             light: '#FFF'  // Latar belakang putih
@@ -24,13 +28,19 @@ client.on("qr", qr => {
     }, function (err) {
         if (err) throw err;
         console.log('QR code disimpan sebagai qrcode.png. Silakan pindai dengan WhatsApp.');
+        // Tampilkan URL gambar QR code
+        console.log('URL QR code: ', 'file:///' + __dirname + '/qrcode.png'); // URL file lokal
     });
 });
 
+// Menangani keberhasilan autentikasi
+client.on("authenticated", () => {
+    console.log("Autentikasi berhasil!");
+});
 
-// Client siap digunakan
-client.on('ready', () => {
-    console.log("Bot siap digunakan untuk mengirim pesan.");
+// Menangani kegagalan autentikasi
+client.on("auth_failure", msg => {
+    console.error("Autentikasi gagal:", msg);
 });
 
 // Mendengarkan pesan yang diterima
