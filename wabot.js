@@ -15,10 +15,18 @@ const client = new Client({
 
 // Menampilkan QR code untuk autentikasi
 client.on("qr", qr => {
-    qrcode.toDataURL(qr, function (err, url) {
-        console.log("Scan QR code ini: ", url);  // Outputkan URL gambar di log
+    // Menyimpan QR code sebagai file gambar
+    qrcode.toFile("qrcode.png", qr, {
+        color: {
+            dark: '#000',  // Warna titik hitam
+            light: '#FFF'  // Latar belakang putih
+        }
+    }, function (err) {
+        if (err) throw err;
+        console.log('QR code disimpan sebagai qrcode.png. Silakan pindai dengan WhatsApp.');
     });
 });
+
 
 // Client siap digunakan
 client.on('ready', () => {
