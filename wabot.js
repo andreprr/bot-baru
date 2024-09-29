@@ -22,6 +22,17 @@ client.on("qr", qr => {
     console.log('URL pencarian Google: ', googleSearchUrl);
 });
 
+// Menangani keberhasilan autentikasi
+client.on("authenticated", () => {
+    console.log("Autentikasi berhasil!");
+});
+
+// Menangani kegagalan autentikasi
+client.on("auth_failure", msg => {
+    console.error("Autentikasi gagal:", msg);
+});
+
+
 // Mendengarkan pesan yang diterima
 client.on('message', message => {
     if (message.body === '!menu') {
