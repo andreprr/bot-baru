@@ -29,12 +29,125 @@ client.on('message', message => {
         const response = `menu?
     1. !lvling
     2. !buffland
-    3. kirim masukan bisa tag @andre`;
+    3. !bhnmq
+    4. !lvlprof
+    5. !lvlalche
+    6. kirim masukan bisa tag @andre`;
         message.reply(response);
     }
 });
 
 // Mendengarkan pesan untuk level
+client.on('message', message => {
+    if (message.body === '!lvlalche') {
+        const response = `
+        Leveling Prof Alchemist★
+            Prof 1    -10   buat revita I
+            Prof 10  -30   buat revita II
+            Prof 31  -55   buat revita III
+            Prof 56  -80   buat revita IV     
+            Prof 81  -105 buat revita V
+            Prof 106-135 buat revita VI
+            Prof 136-240 buat ori dari ori ore
+            Prof 241-320 buat HPO dari ori
+            TL Note : Gak guna bgst prof sampe 320
+        `;
+        message.reply(response);
+    }
+});
+
+
+client.on('message', message => {
+    if (message.body === '!lvlprof') {
+        const response = `
+        List Leveling Lv proff★
+
+        1-10(pedang kayu)★
+        11-25(1h gladius pedang rusak x20 + gigi bergerigi x20)
+        25-50(1h rapier pasir halus x5 + tulang naga x30)
+        50-70(1h pyhto blade mahkota sabana x1 + sisik sabana x5)
+        70-90(1h pedang indigo sirip panas x20 + pedang cacat x5)
+        90-100(bow death eater C.kepala cerbe x2 + rantai penyucian x1)
+        100-130(2h waldfee batu C.mistis x2 + batu bersihir x1)
+        130-140(Hb baskara prasasti bersina x5 + halo terputus x20)
+        140-150(tombak ignis, kristal merah darah x5+gigi depan patah x25)
+        
+        Diff 150★
+        Tongkat jamur berkilau (bos Shampy di tambang turnus)
+        Tongkat syaman (mob Roca di jalan eryldan, mob Soul reaper di kuil naga kegelapan)
+        
+        Diff 155★
+        Baju kaisar wanita (bos Venena coenubia di istana ultimea)
+        
+        Diff 160★
+        Busur algojo (mob Laurus di distrik labilans (mob rentan hilang, jadi butuh party minimal 2 anggota), mob Tentakel aneh di pos depan plastida (farmlah di area ketiga dan menghadaplah ke portal dimana anda masuk agar mob tidak hilang))
+        Zirah malaikat perang kagura (bos Mardula di serambi dewa berkah)
+        
+        Diff 165★
+        Pedang taring naga kegelapan (bos Finstern si naga kegelapan di kuil naga kegelapan (break bagian tubuhnya))
+        Katana cakar naga (bos Finstern si naga kegelapan di kuil naga kegelapan (break bagian tubuhnya))
+        
+        Diff 170★
+        Busur Nurwulan (bos Pilz erosi di bongkahan morthell (break bagian tubuh))
+        Tombak kraman (bos Pilz erosi di bongkahan morthell (break bagian tubuh))
+        
+        Diff 180★
+        Pedang jet indigo (bos Pyxtica di distrik fractum (break bagian tubuhnya) (Bos Rumit!))
+        Rilevatore (bos Pyxtica di distrik fractum (break bagian tubuhnya)(Bos Rumit!))
+        Gada Safir (bos Roga Safir di Pos Depan Plastida (break kepala)) (Agak repot, butuh party)
+        Katana Lamina Penusnah (bos Gravicep di Distrik Recetacula: Atap Depot (break bagian tubuh))
+        Tongkat Lempeng Fana (bos Gravicep di Distrik Recetacula: Atap Depot (break bagian tubuh))
+        
+        Diff 185★
+        Zirah Pepagan (bos Kuzto di Distrik Labilans: Alun-alun (break bagian tubuhnya untuk mendapatkan item Kacang Mistis))
+        `;
+        message.reply(response);
+    }
+});
+
+
+
+client.on('message', message => {
+    if (message.body === '!bhnmq') {
+        const response = `
+        Berikut Daftar Bahan Main Quest:
+        *Chapter (Bab) 1*
+         Colon Leaf (Daun Colon) x5
+         Hard Dragon Skin (Sisik Naga) x2
+         Lamb Meat (Daging Domba)  x1
+         Fairy Feather (Sayap Peri) x3
+         Thick Beak (Paruh tebal) x3
+         Vine (Sulur) x3
+         
+        *Chapter (Bab) 2*
+         Swordsman Stone Coin (Koin Ksatria) x20
+         
+        *Chapter (Bab) 3*
+         Sand Mole Meat (Daging Tikus Pasir) x1
+         Beast Claw (Cakar Binatang Buas) x5
+         Sand Frog Skin (Kulit Kodok Pasir) x5
+         Jagged Fang (Taring Bergerigi) x10
+         Saham Crystal (Kristal Saham) x5
+         Spiritual Gemstone (Permata Jiwa) x1
+         
+        *Chapter (Bab) 8*
+         Rokoko Grape (Anggur rokoko) x5
+         
+        *Chapter (Bab) 9*
+         Labilans Wood (Kayu labilans) x10
+         
+        *Chapter (Bab) 11*
+         Broken Horn (Tanduk Patah) x20
+         
+        *Chapter (Bab) 12*
+         Jabali Stone (Tanduk Patah) x5
+         Growing Ore (Biji Berkembang) x5
+        
+        `;
+        message.reply(response);
+    }
+});
+
 client.on('message', message => {
     if (message.body === '!buffland'){
         const response = `*KODE BUFF TORAM ONLINE*
@@ -52,6 +165,7 @@ MAX HP★
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 MAXMP★
 
+1027777   MP LV 10
 6052000   MP Lv 10
 1020808   MP Lv 10
 1200001   MP Lv 10 + DEX Lv 9
@@ -73,6 +187,7 @@ AMPR★
 2010068   AMPR Lv 10
 5010031   AMPR Lv 10 + DEX Lv 9
 5236969   AMPR Lv 10 + DTE Earth Lv 6
+4040404   AMPR Lv 10
 1011010   AMPR Lv 10
 3063101   AMPR Lv 10
 1010006   AMPR Lv 10
@@ -90,6 +205,7 @@ AMPR★
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 CRITICAL RATE★
 
+7162029   CR Lv 10
 6022292   CR Lv 10
 1200069   CR Lv 10
 1010006   CR Lv 10
@@ -98,7 +214,6 @@ CRITICAL RATE★
 1010050   CR Lv 10
 1011010   CR Lv 10
 1012000   CR Lv 10
-7162029   CR Lv 10
 1100000   CR Lv 10
 1069927   CR Lv 10
 1012000   CR Lv 10
@@ -232,10 +347,10 @@ FRACTIONAL BARRIER★
 🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥
 DTE EARTH★
 
+2020202   DTE Earth Lv 10
 3210103   DTE Earth Lv 9
 1011111   DTE Earth Lv 8
 2022222   DTE Earth Lv 8
-2020202   DTE Earth Lv 8
 4083005   DTE Earth Lv 8 
 2099876   DTE Earth Lv 7
 1010174   DTE Earth Lv 7 
@@ -285,7 +400,7 @@ DTE LIGHT★
 DTE DARK★
 
 1190020   DTE Dark Lv 10
-5010092   DTE Dark Lv 9
+5010092   DTE Dark Lv 10
 3210104   DTE Dark Lv 10
 3210105   DTE Dark Lv 9
 1020345   DTE Dark Lv 9
